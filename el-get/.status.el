@@ -1,0 +1,1 @@
+(:el-get "installed" :ac-ghc-mod "installed" :haskell-mode "installed" :haskell-mode-exts "installed" :hs-lint "installed" :sicp "installed" :slime "installed" :color-theme "installed" :popup "installed" :auto-complete "installed")
