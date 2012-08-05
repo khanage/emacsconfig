@@ -5,6 +5,14 @@
 
 (add-to-list 'exec-path "~/.cabal/bin")
 
+;;;; Hack together an info mode
+(defun info-mode ()
+  (interactive)
+  (let ((file-name (buffer-file-name)))
+    (kill-buffer (current-buffer))
+    (info file-name)))
+(add-to-list 'auto-mode-alist '("\\.info\\'" . info-mode))
+
 (unless (require 'el-get nil t)
   (url-retrieve
    "https://raw.github.com/dimitri/el-get/master/el-get-install.el"
@@ -43,3 +51,10 @@
 ;;                   (ac-source-ghc-symbol
 ;;                    ac-source-ghc-pragmas
 ;;                    ac-source-ghc-langexts))))
+
+
+;;;; LISP
+(setq inferior-lisp-program "/usr/bin/sbcl") ; your Lisp system
+(add-to-list 'load-path "~/.emacs.d/slime/")  ; your SLIME directory
+(require 'slime)
+(slime-setup)

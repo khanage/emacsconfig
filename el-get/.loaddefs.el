@@ -3,6 +3,85 @@
 ;;; Code:
 
 
+;;;### (autoloads (clojure-enable-slime-on-existing-buffers clojure-jack-in
+;;;;;;  clojure-mode) "clojure-mode" "clojure-mode/clojure-mode.el"
+;;;;;;  (20510 34354))
+;;; Generated autoloads from clojure-mode/clojure-mode.el
+
+(autoload 'clojure-mode "clojure-mode" "\
+Major mode for editing Clojure code - similar to Lisp mode.
+Commands:
+Delete converts tabs to spaces as it moves back.
+Blank lines separate paragraphs.  Semicolons start comments.
+\\{clojure-mode-map}
+Note that `run-lisp' may be used either to start an inferior Lisp job
+or to switch back to an existing one.
+
+Entry to this mode calls the value of `clojure-mode-hook'
+if that value is non-nil.
+
+\(fn)" t nil)
+
+(autoload 'clojure-jack-in "clojure-mode" "\
+Not documented
+
+\(fn)" t nil)
+
+(autoload 'clojure-enable-slime-on-existing-buffers "clojure-mode" "\
+Not documented
+
+\(fn)" t nil)
+
+(add-hook 'slime-connected-hook 'clojure-enable-slime-on-existing-buffers)
+
+(put 'clojure-test-ns-segment-position 'safe-local-variable 'integerp)
+
+(put 'clojure-mode-load-command 'safe-local-variable 'stringp)
+
+(put 'clojure-swank-command 'safe-local-variable 'stringp)
+
+(add-hook 'slime-connected-hook 'clojure-enable-slime-on-existing-buffers)
+
+(add-hook 'slime-indentation-update-hooks 'put-clojure-indent)
+
+(add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
+
+(add-to-list 'interpreter-mode-alist '("jark" . clojure-mode))
+
+(add-to-list 'interpreter-mode-alist '("cake" . clojure-mode))
+
+;;;***
+
+;;;### (autoloads (clojure-test-mode) "clojure-test-mode" "clojure-mode/clojure-test-mode.el"
+;;;;;;  (20510 34354))
+;;; Generated autoloads from clojure-mode/clojure-test-mode.el
+
+(autoload 'clojure-test-mode "clojure-test-mode" "\
+A minor mode for running Clojure tests.
+
+\(fn &optional ARG)" t nil)
+
+(defun clojure-test-maybe-enable nil "\
+Enable clojure-test-mode if the current buffer contains a namespace
+with a \"test.\" bit on it." (let ((ns (clojure-find-package))) (when (and ns (string-match "test\\(\\.\\|$\\)" ns)) (save-window-excursion (clojure-test-mode t)))))
+
+(add-hook 'clojure-mode-hook 'clojure-test-maybe-enable)
+
+;;;***
+
+;;;### (autoloads (clojurescript-mode) "clojurescript-mode" "clojure-mode/clojurescript-mode.el"
+;;;;;;  (20510 34354))
+;;; Generated autoloads from clojure-mode/clojurescript-mode.el
+
+(autoload 'clojurescript-mode "clojurescript-mode" "\
+Major mode for ClojureScript
+
+\(fn)" t nil)
+
+(add-to-list 'auto-mode-alist '("\\.cljs$" . clojurescript-mode))
+
+;;;***
+
 ;;;### (autoloads (color-theme-initialize color-theme-submit color-theme-install
 ;;;;;;  color-theme-compare color-theme-make-snapshot color-theme-analyze-defun
 ;;;;;;  color-theme-print color-theme-install-at-point-for-current-frame
@@ -142,8 +221,63 @@ Initialize the color theme package by loading color-theme-libraries.
 
 ;;;***
 
-;;;### (autoloads nil nil ("el-get/el-get-install.el" "el-get/el-get.el")
-;;;;;;  (20510 32793 50754))
+;;;### (autoloads (egg-minor-mode-find-file-hook egg-minor-mode)
+;;;;;;  "egg" "egg/egg.el" (20510 34423))
+;;; Generated autoloads from egg/egg.el
+
+(autoload 'egg-minor-mode "egg" "\
+Turn-on egg-minor-mode which would enable key bindings for
+egg in current buffer.\\<egg-minor-mode-map>
+\\[egg-start-new-branch] start a new branch from the current HEAD.
+\\[egg-status] shows the repo's current status
+\\[egg-commit-log-edit] start editing the commit message for the current staged changes.
+\\[egg-file-stage-current-file] stage new changes of the current file
+\\[egg-log] shows repo's history
+\\[egg-file-checkout-other-version] checkout another version of the current file
+\\[egg-file-cancel-modifications] delete unstaged modifications in the current file
+\\[egg-next-action] perform the next logical action
+\\[egg-file-diff] compare file with index or other commits
+\\[egg-file-version-other-window] show other version of the current file.
+
+\\{egg-minor-mode-map}
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'egg-minor-mode-find-file-hook "egg" "\
+Not documented
+
+\(fn)" nil nil)
+
+(add-hook 'find-file-hook 'egg-git-dir)
+
+(add-hook 'find-file-hook 'egg-minor-mode-find-file-hook)
+
+;;;***
+
+;;;### (autoloads (egg-grep egg-grep-mode egg-grep-process-setup)
+;;;;;;  "egg-grep" "egg/egg-grep.el" (20510 34423))
+;;; Generated autoloads from egg/egg-grep.el
+
+(autoload 'egg-grep-process-setup "egg-grep" "\
+Setup compilation variables and buffer for `egg-grep'.
+Set up `compilation-exit-message-function' and run `egg-grep-setup-hook'.
+
+\(fn)" nil nil)
+
+(autoload 'egg-grep-mode "egg-grep" "\
+Sets `compilation-last-buffer' and `compilation-window-height'.
+
+\(fn)" nil nil)
+
+(autoload 'egg-grep "egg-grep" "\
+Not documented
+
+\(fn LEVEL)" t nil)
+
+;;;***
+
+;;;### (autoloads nil nil ("el-get/el-get-install.el" "el-get/el-get.el"
+;;;;;;  "swank-clojure/swank-clojure.el") (20510 34808 297339))
 
 ;;;***
 

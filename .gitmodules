@@ -13,3 +13,9 @@
 [submodule "el-get/auto-complete"]
 	path = el-get/auto-complete
 	url = http://github.com/m2ym/auto-complete.git
+[submodule "el-get/clojure-mode"]
+	path = el-get/clojure-mode
+	url = https://github.com/technomancy/clojure-mode.git
+[submodule "el-get/egg"]
+	path = el-get/egg
+	url = https://github.com/byplayer/egg.git
