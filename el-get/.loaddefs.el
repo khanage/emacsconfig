@@ -143,7 +143,7 @@ Initialize the color theme package by loading color-theme-libraries.
 ;;;***
 
 ;;;### (autoloads nil nil ("el-get/el-get-install.el" "el-get/el-get.el")
-;;;;;;  (20510 13090 366642))
+;;;;;;  (20510 32793 50754))
 
 ;;;***
 

@@ -10,6 +10,6 @@
 [submodule "el-get/popup"]
 	path = el-get/popup
 	url = https://github.com/m2ym/popup-el.git
-[submodule "el-get/el-get"]
-	path = el-get/el-get
-	url = http://github.com/dimitri/el-get/master/el-get-install.el
+[submodule "el-get/auto-complete"]
+	path = el-get/auto-complete
+	url = http://github.com/m2ym/auto-complete.git
