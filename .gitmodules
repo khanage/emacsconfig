@@ -1,0 +1,12 @@
+[submodule "el-get/haskell-mode"]
+	path = el-get/haskell-mode
+	url = https://github.com/pheaver/haskell-mode.git
+[submodule "el-get/haskell-mode-exts"]
+	path = el-get/haskell-mode-exts
+	url = http://github.com/pheaver/haskell-mode-exts.git
+[submodule "el-get/slime"]
+	path = el-get/slime
+	url = https://github.com/nablaone/slime.git
+[submodule "el-get/popup"]
+	path = el-get/popup
+	url = https://github.com/m2ym/popup-el.git
